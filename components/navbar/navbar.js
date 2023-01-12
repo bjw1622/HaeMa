@@ -1,7 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./navbar.module.scss";
+import { useSession, signIn, signOut } from "next-auth/react";
+
 const Navbar = () => {
+  const { data: session } = useSession();
+
   return (
     <div id={styles.nav}>
       <div id={styles.navlogo}>
@@ -25,14 +29,10 @@ const Navbar = () => {
             </Link>
           </li>
           <li className={styles.navli}>
-            <Link className={styles.navlink} href="/login">
-              로그인
-            </Link>
+            <button onClick={() => signIn()}>Sign in</button>
           </li>
           <li className={styles.navli}>
-            <Link className={styles.navlink} href="/home">
-              로그아웃
-            </Link>
+            <button onClick={() => signOut()}>Sign out</button>
           </li>
           <li className={styles.navli}>
             <Link className={styles.navlink} href="/home">
