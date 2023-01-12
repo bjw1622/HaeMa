@@ -1,0 +1,11 @@
+* {
+  font-family: Jalnan;
+}
+@font-face {
+  font-family: "Jalnan";
+  src: url("/font/Jalnan.ttf") format(truetype);
+}
+body {
+  padding: 0;
+  margin: 0;
+}
