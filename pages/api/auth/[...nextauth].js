@@ -18,6 +18,6 @@ export const authOptions = {
       clientSecret: "5acgT51YvTUGi2x9DxyCzAvQyusZPa4o",
     }),
   ],
-  secret: preocess.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
 };
 export default NextAuth(authOptions);
