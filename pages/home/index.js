@@ -1,6 +1,9 @@
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import styles from "./index.module.scss";
 const Home = () => {
+  const { data: session } = useSession();
+  console.log(session);
   return (
     <>
       <div className={styles.find}>
