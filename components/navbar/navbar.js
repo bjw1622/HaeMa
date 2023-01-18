@@ -25,7 +25,7 @@ const Navbar = () => {
           <ul id={styles.navuserinfo}>
             <li className={styles.navli}>
               <h5>
-                안녕하세요, <Link href="/home">{session.user.name}</Link>님
+                안녕하세요, <Link href="/mypage">{session.user.name}</Link>님
               </h5>
             </li>
             <li className={styles.navli}>
@@ -34,7 +34,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li className={styles.navli}>
-              <Link className={styles.navlink} href="/home">
+              <Link className={styles.navlink} href="/mypage">
                 마이페이지
               </Link>
             </li>
