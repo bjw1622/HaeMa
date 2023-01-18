@@ -19,9 +19,7 @@ const Home = () => {
           <thead className={styles.thead}>
             <tr>
               <th className={styles.th}>#</th>
-              <th cloSpan={4} className={styles.th}>
-                제목
-              </th>
+              <th className={styles.th}>제목</th>
               <th className={styles.th}>작성자</th>
               <th className={styles.th}>날짜</th>
               <th className={styles.th}>조회수</th>
@@ -31,7 +29,7 @@ const Home = () => {
             <tr>
               <td className={styles.td}>1</td>
               <td colSpan={4} className={styles.td}>
-                <Link className={styles.link} href="/">
+                <Link className={styles.link} href="/detail">
                   해마
                 </Link>
               </td>
@@ -43,7 +41,9 @@ const Home = () => {
         </table>
       </div>
 
-      <button className={styles.write}>글쓰기</button>
+      <Link href="/write">
+        <button className={styles.write}>글쓰기</button>
+      </Link>
 
       <div className={styles.indexbtn}>
         <button>1</button>
