@@ -1,23 +1,28 @@
 import NextAuth from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
-import KakaoProvider from "next-auth/providers/kakao";
+import { FirestoreAdapter } from "@next-auth/firebase-adapter";
 export const authOptions = {
   providers: [
     GithubProvider({
-      clientId: "257ac962cea6392c09df",
-      clientSecret: "ab8b1a5ed78eaac8aa188deffd3d70c40c11298f",
+      clientId: "d05b523e6b18b37343f3",
+      clientSecret: "260008604913eca331397a05f08ee3004a2f0e8e",
     }),
     GoogleProvider({
       clientId:
-        "413999012118-t9ln1oq4rprvgglctre1unks9j285k3u.apps.googleusercontent.com",
-      clientSecret: "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",
-    }),
-    KakaoProvider({
-      clientId: "1166cc6dd524d73516b8eb8671f1bcb0",
-      clientSecret: "5acgT51YvTUGi2x9DxyCzAvQyusZPa4o",
+        "842542254732-0v1i4h8vh2n0g88u0tucas8c0f485l3u.apps.googleusercontent.com",
+      clientSecret: "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",
     }),
   ],
+  adapter: FirestoreAdapter({
+    apiKey: "AIzaSyD3FeIl2plQFBpnqltN_et7rGdOblNvqgE",
+    authDomain: "hae-ma.firebaseapp.com",
+    projectId: "hae-ma",
+    storageBucket: "hae-ma.appspot.com",
+    messagingSenderId: "831224162773",
+    appId: "1:831224162773:web:4e4fe2dd466094ff23b55c",
+    measurementId: "G-8L8N9D12SF",
+  }),
   secret: process.env.NEXTAUTH_SECRET,
 };
 export default NextAuth(authOptions);
