@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./index.module.scss";
-const Index = () => {
+const Detail = () => {
   return (
     <div className={styles.detail}>
       <div id={styles.detailTitle}>
@@ -73,4 +73,4 @@ const Index = () => {
     </div>
   );
 };
-export default Index;
+export default Detail;
