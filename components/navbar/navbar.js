@@ -29,7 +29,7 @@ const Navbar = () => {
               </h5>
             </li>
             <li className={styles.navli}>
-              <Link className={styles.navlink} href="/home">
+              <Link className={styles.navlink} href="/dashboard">
                 대시 보드
               </Link>
             </li>
