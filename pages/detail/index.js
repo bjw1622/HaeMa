@@ -51,6 +51,7 @@ const Index = () => {
             상황이 발생하게 되는 문제가 있었습
           </div>
           <button id={styles.rereplyBtn}>답글 쓰기</button>
+          <button>답글 보기</button>
         </div>
         <div>
           <div id={styles.replyItem}>
@@ -66,6 +67,7 @@ const Index = () => {
             상황이 발생하게 되는 문제가 있었습
           </div>
           <button id={styles.rereplyBtn}>답글 쓰기</button>
+          <button>답글 보기</button>
         </div>
       </div>
     </div>
