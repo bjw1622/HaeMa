@@ -22,8 +22,14 @@ const Detail = () => {
       </div>
 
       <div id={styles.recommand}>
-        <button id={styles.doBtn}>해?</button>
-        <button id={styles.dontBtn}>마!</button>
+        <div className={styles.btnDiv}>
+          <button id={styles.doBtn}>해?</button>
+          <h3>12</h3>
+        </div>
+        <div className={styles.btnDiv}>
+          <button id={styles.dontBtn}>마!</button>
+          <h3>3</h3>
+        </div>
       </div>
 
       <div id={styles.reply}>
