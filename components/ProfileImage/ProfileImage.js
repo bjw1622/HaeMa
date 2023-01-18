@@ -1,12 +1,12 @@
-import {
-  getStorage,
-  ref,
-  uploadBytes,
-  listAll,
-  getDownloadURL,
-} from "firebase/storage";
-import { useSession } from "next-auth/react";
-import { useState } from "react";
+// import {
+//   getStorage,
+//   ref,
+//   uploadBytes,
+//   listAll,
+//   getDownloadURL,
+// } from "firebase/storage";
+// import { useSession } from "next-auth/react";
+// import { useState } from "react";
 
 const ProfileImage = () => {
   //   const [imageUpload, setImageUpload] = useState(null);
