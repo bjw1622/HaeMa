@@ -1,3 +1,8 @@
+.find {
+  display: flex;
+  margin: 30px 30px 30px 0;
+  justify-content: flex-end;
+}
 .home {
   padding: 1.5em;
   background: #f5f5f5;
@@ -32,22 +37,13 @@
   padding: 1em 0.5em;
   vertical-align: middle;
 }
-
 .link {
   color: red;
   text-decoration: none;
 }
-
-.indexbtn {
-  text-align: center;
-}
-
-.find {
-  display: flex;
-  margin: 30px 30px 30px 0;
-  justify-content: flex-end;
-}
-
 .write {
   margin-left: 30px;
+}
+.pagingBtn {
+  text-align: center;
 }

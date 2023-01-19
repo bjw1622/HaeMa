@@ -56,8 +56,10 @@ const Detail = () => {
             위치가 고정이 되어 결국에는 스크롤을 위로 올린다음 다시 내려야하는
             상황이 발생하게 되는 문제가 있었습
           </div>
-          <button id={styles.rereplyBtn}>답글 쓰기</button>
-          <button>답글 보기</button>
+          <div id={styles.rereplyBtn}>
+            <button>답글 쓰기</button>
+            <button>답글 보기</button>
+          </div>
         </div>
         <div>
           <div id={styles.replyItem}>
