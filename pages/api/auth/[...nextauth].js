@@ -14,15 +14,6 @@ export const authOptions = {
       clientSecret: "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",
     }),
   ],
-  adapter: FirestoreAdapter({
-    apiKey: "AIzaSyD3FeIl2plQFBpnqltN_et7rGdOblNvqgE",
-    authDomain: "hae-ma.firebaseapp.com",
-    projectId: "hae-ma",
-    storageBucket: "hae-ma.appspot.com",
-    messagingSenderId: "831224162773",
-    appId: "1:831224162773:web:4e4fe2dd466094ff23b55c",
-    measurementId: "G-8L8N9D12SF",
-  }),
   secret: process.env.NEXTAUTH_SECRET,
 };
 export default NextAuth(authOptions);
