@@ -1,4 +1,4 @@
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { db } from "../../pages/api/firebaseConfig";
@@ -7,7 +7,9 @@ const Table = () => {
   const [todoList, setTodoList] = useState([]);
   const todoListCollectionCollectionRef = collection(db, "Board");
   const getTodos = async () => {
-    const data = await getDocs(todoListCollectionCollectionRef);
+    const data = await getDocs(
+      query(todoListCollectionCollectionRef, orderBy("date"))
+    );
     setTodoList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
   useEffect(() => {
