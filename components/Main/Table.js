@@ -6,14 +6,14 @@ import styles from "./index.module.scss";
 const Table = () => {
   const [todoList, setTodoList] = useState([]);
   const todoListCollectionCollectionRef = collection(db, "Board");
-  const getTodos = async () => {
+  const getBoards = async () => {
     const data = await getDocs(
       query(todoListCollectionCollectionRef, orderBy("date"))
     );
     setTodoList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
   useEffect(() => {
-    getTodos();
+    getBoards();
   }, []);
   return (
     <div className={styles.home}>
@@ -29,12 +29,11 @@ const Table = () => {
         </thead>
         <tbody>
           {todoList.map((item, num) => {
-            console.log(item);
             return (
               <tr key={item.id}>
                 <td className={styles.td}>{num + 1}</td>
                 <td colSpan={4} className={styles.td}>
-                  <Link className={styles.link} href="/detail">
+                  <Link className={styles.link} href={`/detail/${item.id}`}>
                     {item.title}
                   </Link>
                 </td>
