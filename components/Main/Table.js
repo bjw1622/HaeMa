@@ -32,7 +32,7 @@ const Table = () => {
             return (
               <tr key={item.id}>
                 <td className={styles.td}>{num + 1}</td>
-                <td colSpan={4} className={styles.td}>
+                <td className={styles.td}>
                   <Link className={styles.link} href={`/detail/${item.id}`}>
                     {item.title}
                   </Link>
