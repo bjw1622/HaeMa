@@ -1,0 +1,42 @@
+#nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+#navtitle {
+  display: flex;
+  margin-left: 50px;
+}
+
+#titleone {
+  color: blue;
+}
+#titletwo {
+  color: red;
+}
+#navlogo {
+  display: flex;
+  margin-left: 50px;
+}
+#navuserinfo {
+  display: flex;
+}
+.navli {
+  list-style: none;
+  margin: auto 10px auto 10px;
+}
+.navlink {
+  text-decoration: none;
+  color: black;
+}
+#navuser {
+  margin: auto 30px auto 30px;
+}
+
+@media (max-width: 780px) {
+  #nav {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+  }
+}
