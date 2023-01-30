@@ -1,6 +1,8 @@
 import {
   addDoc,
   collection,
+  deleteDoc,
+  doc,
   getDocs,
   orderBy,
   query,
@@ -53,6 +55,17 @@ const Reply = (props) => {
     setLoading(false);
   };
 
+  const removeReply = async (event) => {
+    if (window.confirm("삭제 하시겠습니까?")) {
+      const removeReplyDoc = doc(
+        db,
+        "Reply",
+        event.target.getAttribute("key-data")
+      );
+      await deleteDoc(removeReplyDoc);
+    }
+    getReplyList();
+  };
   useEffect(() => {
     getReplyList();
   }, []);
@@ -94,7 +107,9 @@ const Reply = (props) => {
                 <button>답글 쓰기</button>
                 <button>답글 보기</button>
                 {item.email === session.user.email ? (
-                  <button>댓글 삭제</button>
+                  <button key-data={item.id} onClick={removeReply}>
+                    댓글 삭제
+                  </button>
                 ) : (
                   ""
                 )}
