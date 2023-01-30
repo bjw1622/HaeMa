@@ -9,6 +9,7 @@ const Reply = (props) => {
   const textInputValue = (event) => {
     setInputReply(event.target.value);
   };
+  console.log(session);
   const addReply = async () => {
     const replyCollection = collection(db, "Reply");
     await addDoc(replyCollection, {
@@ -18,6 +19,7 @@ const Reply = (props) => {
       email: session.user.email,
       writer: session.user.name,
       parentReplyNo: 0,
+      profile: session.user.image,
     });
     setInputReply("");
   };
