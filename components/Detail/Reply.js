@@ -11,11 +11,13 @@ import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { db } from "../../pages/api/firebaseConfig";
+import Loading from "../Loading";
 import styles from "./index.module.scss";
 const Reply = (props) => {
   const { data: session } = useSession();
   const [inputReply, setInputReply] = useState("");
   const [replyList, setReplyList] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const textInputValue = (event) => {
     setInputReply(event.target.value);
@@ -36,6 +38,7 @@ const Reply = (props) => {
 
   const addReply = async () => {
     const replyCollection = collection(db, "Reply");
+    setLoading(true);
     await addDoc(replyCollection, {
       boardId: props.boardId,
       content: inputReply,
@@ -47,6 +50,7 @@ const Reply = (props) => {
     });
     setInputReply("");
     getReplyList();
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -55,6 +59,7 @@ const Reply = (props) => {
 
   return (
     <>
+      {loading ? <Loading /> : null}
       <div id={styles.reply}>
         <textarea
           id={styles.replyArea}
@@ -88,6 +93,11 @@ const Reply = (props) => {
               <div id={styles.rereplyBtn}>
                 <button>답글 쓰기</button>
                 <button>답글 보기</button>
+                {item.email === session.user.email ? (
+                  <button>댓글 삭제</button>
+                ) : (
+                  ""
+                )}
               </div>
             </div>
           );
