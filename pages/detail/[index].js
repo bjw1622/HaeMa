@@ -26,8 +26,8 @@ const Detail = () => {
       <Title title={board.title} writer={board.writer} />
       <Content content={board.content} />
       <HaeMa hae={board.hae} ma={board.ma} />
-      <Reply />
-      <ReplyList />
+      <Reply boardId={routerIndex} />
+      <ReplyList boardId={routerIndex} />
     </div>
   );
 };
