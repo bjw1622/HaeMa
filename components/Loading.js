@@ -13,7 +13,8 @@ function Loading() {
         }}
       >
         <FadeLoader
-          color="#black"
+          display="none"
+          color="blue"
           height={15}
           width={5}
           radius={2}
