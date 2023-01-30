@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Content from "../../components/Detail/Content";
 import HaeMa from "../../components/Detail/HaeMa";
 import Reply from "../../components/Detail/Reply";
-import ReplyList from "../../components/Detail/ReplyList";
 import Title from "../../components/Detail/Title";
 import { db } from "../api/firebaseConfig";
 import styles from "./index.module.scss";
@@ -27,7 +26,6 @@ const Detail = () => {
       <Content content={board.content} />
       <HaeMa hae={board.hae} ma={board.ma} />
       <Reply boardId={routerIndex} />
-      <ReplyList boardId={routerIndex} />
     </div>
   );
 };
