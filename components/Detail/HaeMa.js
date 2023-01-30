@@ -5,7 +5,6 @@ const HaeMa = (props) => {
   const routerIndex = router.query.index;
   const clickHae = (e) => {};
   const clickMa = (e) => {};
-  console.log(routerIndex);
   return (
     <div id={styles.recommand}>
       <div className={styles.btnDiv}>
