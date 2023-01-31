@@ -79,3 +79,22 @@
 #profile {
   border-radius: 30px;
 }
+#replyHead {
+  display: flex;
+  justify-content: space-between;
+}
+#menuGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.groupBtn {
+  border: none;
+}
+#menuBtn {
+  border: none;
+  font-size: x-large;
+}
+#menu {
+  min-width: none;
+}
