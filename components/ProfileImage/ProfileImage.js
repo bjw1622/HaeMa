@@ -1,13 +1,13 @@
-// import {
-//   getStorage,
-//   ref,
-//   uploadBytes,
-//   listAll,
-//   getDownloadURL,
-// } from "firebase/storage";
-// import { useSession } from "next-auth/react";
-// import { useState } from "react";
-
+import {
+  getStorage,
+  ref,
+  uploadBytes,
+  listAll,
+  getDownloadURL,
+} from "firebase/storage";
+import { useSession } from "next-auth/react";
+import { useState } from "react";
+import styles from "./profile.module.scss";
 const ProfileImage = () => {
   //   const [imageUpload, setImageUpload] = useState(null);
   //   const { data } = useSession();
@@ -38,7 +38,7 @@ const ProfileImage = () => {
 
   return (
     <>
-      <div>
+      <div id={styles.profile}>
         <input
           type="file"
           onChange={(event) => {
