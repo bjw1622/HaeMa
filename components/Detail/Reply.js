@@ -15,12 +15,12 @@ import { useEffect, useState } from "react";
 import { db } from "../../pages/api/firebaseConfig";
 import Loading from "../Loading";
 import styles from "./index.module.scss";
+import KebabBtn from "./KebabBtn";
 const Reply = (props) => {
   const { data: session } = useSession();
   const [inputReply, setInputReply] = useState("");
   const [replyList, setReplyList] = useState([]);
   const [loading, setLoading] = useState(false);
-
   const textInputValue = (event) => {
     setInputReply(event.target.value);
   };
@@ -60,7 +60,7 @@ const Reply = (props) => {
       const removeReplyDoc = doc(
         db,
         "Reply",
-        event.target.getAttribute("key-data")
+        event.target.getAttribute("keydata")
       );
       await deleteDoc(removeReplyDoc);
     }
@@ -92,27 +92,27 @@ const Reply = (props) => {
         {replyList.map((item) => {
           return (
             <div key={item.id}>
-              <div id={styles.replyItem}>
-                <Image
-                  id={styles.profile}
-                  src={item.profile}
-                  alt=""
-                  width={50}
-                  height={50}
-                ></Image>
-                <h4 id={styles.replyer}>{item.writer}</h4>
+              <div id={styles.replyHead}>
+                <div id={styles.replyItem}>
+                  <Image
+                    id={styles.profile}
+                    src={item.profile}
+                    alt=""
+                    width={50}
+                    height={50}
+                  ></Image>
+                  <h4 id={styles.replyer}>{item.writer}</h4>
+                </div>
+                {item.email === session.user.email ? (
+                  <KebabBtn keydata={item.id} remove={removeReply}></KebabBtn>
+                ) : (
+                  ""
+                )}
               </div>
               <div id={styles.replyContent}>{item.content}</div>
               <div id={styles.rereplyBtn}>
                 <button>답글 쓰기</button>
                 <button>답글 보기</button>
-                {item.email === session.user.email ? (
-                  <button key-data={item.id} onClick={removeReply}>
-                    댓글 삭제
-                  </button>
-                ) : (
-                  ""
-                )}
               </div>
             </div>
           );
@@ -121,4 +121,5 @@ const Reply = (props) => {
     </>
   );
 };
+
 export default Reply;
