@@ -10,12 +10,11 @@ import {
   where,
 } from "firebase/firestore";
 import { useSession } from "next-auth/react";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { db } from "../../pages/api/firebaseConfig";
 import Loading from "../Loading";
 import styles from "./index.module.scss";
-import KebabBtn from "./KebabBtn";
+import ReplyList from "./ReplyList";
 const Reply = (props) => {
   const { data: session } = useSession();
   const [inputReply, setInputReply] = useState("");
@@ -60,7 +59,7 @@ const Reply = (props) => {
       const removeReplyDoc = doc(
         db,
         "Reply",
-        event.target.getAttribute("keydata")
+        event.target.attributes.getNamedItem("keydata").value
       );
       await deleteDoc(removeReplyDoc);
     }
@@ -91,30 +90,12 @@ const Reply = (props) => {
         </h3>
         {replyList.map((item) => {
           return (
-            <div key={item.id}>
-              <div id={styles.replyHead}>
-                <div id={styles.replyItem}>
-                  <Image
-                    id={styles.profile}
-                    src={item.profile}
-                    alt=""
-                    width={50}
-                    height={50}
-                  ></Image>
-                  <h4 id={styles.replyer}>{item.writer}</h4>
-                </div>
-                {item.email === session.user.email ? (
-                  <KebabBtn keydata={item.id} remove={removeReply}></KebabBtn>
-                ) : (
-                  ""
-                )}
-              </div>
-              <div id={styles.replyContent}>{item.content}</div>
-              <div id={styles.rereplyBtn}>
-                <button>답글 쓰기</button>
-                <button>답글 보기</button>
-              </div>
-            </div>
+            <ReplyList
+              key={item.id}
+              item={item}
+              remove={removeReply}
+              email={session.user.email}
+            />
           );
         })}
       </div>
