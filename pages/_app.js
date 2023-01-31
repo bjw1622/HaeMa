@@ -4,7 +4,7 @@ import { SessionProvider } from "next-auth/react";
 import { useEffect, useState } from "react";
 import Loading from "../components/Loading";
 import { Router } from "next/router";
-function MyApp({ session, Component, pageProps }) {
+const MyApp = ({ session, Component, pageProps }) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -24,6 +24,6 @@ function MyApp({ session, Component, pageProps }) {
       </Layout>
     </SessionProvider>
   );
-}
+};
 
 export default MyApp;
