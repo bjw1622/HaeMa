@@ -91,6 +91,10 @@
 .groupBtn {
   border: none;
 }
+.groupBtn:hover {
+  background-color: #ebebeb;
+  width: 80px;
+}
 #menuBtn {
   border: none;
   font-size: x-large;
