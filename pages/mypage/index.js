@@ -8,7 +8,7 @@ import { getSession, useSession } from "next-auth/react";
 import ProfileImage from "../../components/ProfileImage/ProfileImage";
 import { db } from "../api/firebaseConfig";
 import styles from "./index.module.scss";
-const MyPage = ({ boardCount, replyCount }) => {
+const MyPage = ({ boardCount, replyCount, sessionData }) => {
   const { data: session } = useSession();
 
   if (session) {
@@ -26,7 +26,7 @@ const MyPage = ({ boardCount, replyCount }) => {
           </div>
         </div>
         <h3 className={styles.headtext}>{">"} 프로필 이미지 변경</h3>
-        <ProfileImage></ProfileImage>
+        <ProfileImage sessionData={sessionData}></ProfileImage>
       </div>
     );
   }
@@ -51,7 +51,11 @@ export async function getServerSideProps(context) {
   const replyCountSnapShot = await getCountFromServer(replyCountQuery);
   const replyCount = replyCountSnapShot.data().count;
   return {
-    props: { boardCount: boardCount, replyCount: replyCount },
+    props: {
+      boardCount: boardCount,
+      replyCount: replyCount,
+      sessionData: sessionData,
+    },
   };
 }
 
