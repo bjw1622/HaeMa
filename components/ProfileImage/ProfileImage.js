@@ -6,9 +6,10 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import { useSession } from "next-auth/react";
+import Image from "next/image";
 import { useState } from "react";
 import styles from "./profile.module.scss";
-const ProfileImage = () => {
+const ProfileImage = (props) => {
   //   const [imageUpload, setImageUpload] = useState(null);
   //   const { data } = useSession();
   //   const storage = getStorage(firebaseApp);
@@ -35,9 +36,18 @@ const ProfileImage = () => {
   //       getDownloadURL(item).then((url) => {});
   //     });
   //   });
-
+  console.log(props.sessionData.user);
   return (
     <>
+      <div id={styles.image}>
+        <Image
+          id={styles.profileImg}
+          src={props.sessionData.user.image}
+          alt=""
+          width={100}
+          height={100}
+        ></Image>
+      </div>
       <div id={styles.profile}>
         <input
           type="file"
