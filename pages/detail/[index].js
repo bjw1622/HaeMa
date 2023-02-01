@@ -1,4 +1,5 @@
 import { doc, getDoc } from "firebase/firestore";
+import { getSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Content from "../../components/Detail/Content";
@@ -7,7 +8,7 @@ import Reply from "../../components/Detail/Reply";
 import Title from "../../components/Detail/Title";
 import { db } from "../api/firebaseConfig";
 import styles from "./index.module.scss";
-const Detail = () => {
+const Detail = (props) => {
   const router = useRouter();
   const routerIndex = router.query.index;
   const [board, setBoard] = useState([]);
@@ -25,8 +26,16 @@ const Detail = () => {
       <Title title={board.title} writer={board.writer} />
       <Content content={board.content} />
       <HaeMa hae={board.hae} ma={board.ma} />
-      <Reply boardId={routerIndex} />
+      <Reply boardId={routerIndex} email={props.email} />
     </div>
   );
 };
+export async function getServerSideProps(context) {
+  const sessionData = await getSession(context);
+  return {
+    props: {
+      email: sessionData.user.email,
+    },
+  };
+}
 export default Detail;
