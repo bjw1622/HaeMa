@@ -94,7 +94,7 @@ const Reply = (props) => {
               key={item.id}
               item={item}
               remove={removeReply}
-              email={session.user.email}
+              email={props.email}
             />
           );
         })}
