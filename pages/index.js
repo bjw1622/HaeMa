@@ -14,7 +14,11 @@ const Home = ({ getBoardList }) => {
 
   const [findCheck, setFindCheck] = useState(false);
   const select = (e) => {
-    setSelectValue(e.target.value);
+    if (e.target.value === "제목") {
+      setSelectValue("title");
+    } else if (e.target.value === "작성자") {
+      setSelectValue("writer");
+    }
   };
 
   const findInput = (e) => {
@@ -38,8 +42,8 @@ const Home = ({ getBoardList }) => {
     <>
       <div className={styles.find}>
         <select onChange={select}>
-          <option>title</option>
-          <option>writer</option>
+          <option>제목</option>
+          <option>작성자</option>
         </select>
         <div>
           <input onChange={findInput} value={findValue} type="text" />
