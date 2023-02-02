@@ -21,7 +21,6 @@ const Detail = (props) => {
     if (!router.isReady) return;
     getBoard();
   }, [router.isReady]);
-  console.log(board);
   return (
     <div className={styles.detail}>
       <Title
