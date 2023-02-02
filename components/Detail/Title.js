@@ -4,26 +4,31 @@ import { db } from "../../pages/api/firebaseConfig";
 import {
   collection,
   deleteDoc,
+  doc,
   getDocs,
   query,
   where,
 } from "firebase/firestore";
+import { useRouter } from "next/router";
 
 const Title = (props) => {
+  const router = useRouter();
   const removeBoard = async () => {
-    // 댓글 삭제
     if (window.confirm("삭제 하시겠습니까?")) {
-      const boardListCollectionCollectionRef = collection(db, "Reply");
+      const replyListCollection = collection(db, "Reply");
       const replyListQuery = query(
-        boardListCollectionCollectionRef,
+        replyListCollection,
         where("boardId", "==", `${props.boardId}`)
       );
-      const data = await getDocs(replyListQuery);
-      if (data.docs.length !== 0) {
-        data.docs.map((item) => {
+      const replyListData = await getDocs(replyListQuery);
+      if (replyListData.docs.length !== 0) {
+        replyListData.docs.map((item) => {
           deleteDoc(item.ref);
         });
       }
+      const boardDoc = doc(db, "Board", `${props.boardId}`);
+      await deleteDoc(boardDoc);
+      router.push("/");
     }
   };
   return (
@@ -31,7 +36,11 @@ const Title = (props) => {
       <h2>{props.title}</h2>
       <div id={styles.titleInfo}>
         <h4>{props.writer}</h4>
-        <TitleKebabBtn removeBoard={removeBoard} />
+        {props.writerEmail === props.email ? (
+          <TitleKebabBtn removeBoard={removeBoard} />
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
