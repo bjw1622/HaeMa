@@ -1,19 +1,19 @@
 import Link from "next/link";
 import styles from "./index.module.scss";
 const Table = (props) => {
-  if (props.findCheck) {
-    return (
-      <div className={styles.home}>
-        <table className={styles.table}>
-          <thead className={styles.thead}>
-            <tr>
-              <th className={styles.th}>#</th>
-              <th className={styles.th}>제목</th>
-              <th className={styles.th}>작성자</th>
-              <th className={styles.th}>날짜</th>
-              <th className={styles.th}>조회수</th>
-            </tr>
-          </thead>
+  return (
+    <div className={styles.home}>
+      <table className={styles.table}>
+        <thead className={styles.thead}>
+          <tr>
+            <th className={styles.th}>#</th>
+            <th className={styles.th}>제목</th>
+            <th className={styles.th}>작성자</th>
+            <th className={styles.th}>날짜</th>
+            <th className={styles.th}>조회수</th>
+          </tr>
+        </thead>
+        {props.findCheck ? (
           <tbody>
             {props.boardListValue.map((item, num) => {
               return (
@@ -31,22 +31,7 @@ const Table = (props) => {
               );
             })}
           </tbody>
-        </table>
-      </div>
-    );
-  } else {
-    return (
-      <div className={styles.home}>
-        <table className={styles.table}>
-          <thead className={styles.thead}>
-            <tr>
-              <th className={styles.th}>#</th>
-              <th className={styles.th}>제목</th>
-              <th className={styles.th}>작성자</th>
-              <th className={styles.th}>날짜</th>
-              <th className={styles.th}>조회수</th>
-            </tr>
-          </thead>
+        ) : (
           <tbody>
             {props.boardList.map((item, num) => {
               return (
@@ -64,9 +49,9 @@ const Table = (props) => {
               );
             })}
           </tbody>
-        </table>
-      </div>
-    );
-  }
+        )}
+      </table>
+    </div>
+  );
 };
 export default Table;
