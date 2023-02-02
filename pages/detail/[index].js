@@ -21,9 +21,16 @@ const Detail = (props) => {
     if (!router.isReady) return;
     getBoard();
   }, [router.isReady]);
+  console.log(board);
   return (
     <div className={styles.detail}>
-      <Title title={board.title} writer={board.writer} boardId={routerIndex} />
+      <Title
+        title={board.title}
+        writer={board.writer}
+        boardId={routerIndex}
+        writerEmail={board.email}
+        email={props.email}
+      />
       <Content content={board.content} />
       <HaeMa hae={board.hae} ma={board.ma} />
       <Reply boardId={routerIndex} email={props.email} />
