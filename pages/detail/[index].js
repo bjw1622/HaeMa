@@ -23,7 +23,7 @@ const Detail = (props) => {
   }, [router.isReady]);
   return (
     <div className={styles.detail}>
-      <Title title={board.title} writer={board.writer} />
+      <Title title={board.title} writer={board.writer} boardId={routerIndex} />
       <Content content={board.content} />
       <HaeMa hae={board.hae} ma={board.ma} />
       <Reply boardId={routerIndex} email={props.email} />

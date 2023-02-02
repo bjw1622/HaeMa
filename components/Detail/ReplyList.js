@@ -1,6 +1,6 @@
 import Image from "next/image";
-import KebabBtn from "./KebabBtn";
 import styles from "./index.module.scss";
+import ReplyKebabBtn from "./ReplyKebabBtn";
 
 const ReplyList = (props) => {
   return (
@@ -17,7 +17,10 @@ const ReplyList = (props) => {
           <h4 id={styles.replyer}>{props.item.writer}</h4>
         </div>
         {props.item.email === props.email ? (
-          <KebabBtn keydata={props.item.id} remove={props.remove}></KebabBtn>
+          <ReplyKebabBtn
+            keydata={props.item.id}
+            remove={props.remove}
+          ></ReplyKebabBtn>
         ) : (
           ""
         )}

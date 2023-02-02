@@ -1,9 +1,10 @@
 #detailTitle {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 100px;
-  align-items: flex-end;
   margin-bottom: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+#titleInfo {
+  display: flex;
 }
 #detailWrite {
   padding: 50px 100px 50px 100px;
@@ -98,6 +99,10 @@
 #menuBtn {
   border: none;
   font-size: x-large;
+}
+#menuBtnTitleInfo {
+  border: none;
+  font-size: larger;
 }
 #menu {
   min-width: none;
